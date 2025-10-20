@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
+import { Geist, Geist_Mono, Bitter } from 'next/font/google'
+import '@/app/globals.css'
 import Navbar from '@/components/navbar/Navbar'
 import Web3Provider from '@/components/Web3Provider'
 
@@ -12,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+})
+
+const bitter = Bitter({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-bitter',
 })
 
 export const metadata: Metadata = {
@@ -27,7 +33,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} ${bitter.variable} antialiased`}
       >
         <Web3Provider>
           <Navbar />

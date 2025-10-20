@@ -7,10 +7,6 @@ import { http } from 'viem'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
 
-// Minimal default config for ConnectKit + wagmi. In production, replace publicProvider
-// with an RPC provider like alchemy or infura, and set NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID
-// in your environment.
-
 const config = createConfig(
   getDefaultConfig({
     chains: [mainnet, base],
@@ -29,7 +25,14 @@ export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <ConnectKitProvider>{children}</ConnectKitProvider>
+        <ConnectKitProvider
+          customTheme={{
+            '--ck-font-family': 'var(--font-bitter)',
+            '--ck-font-weight': '700',
+          }}
+        >
+          {children}
+        </ConnectKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   )

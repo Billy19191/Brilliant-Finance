@@ -1,3 +1,7 @@
 export default function Dashboard() {
-  return <div>Dashboard Page</div>
+  return (
+    <div className="px-20">
+      <div>Dashboard Page</div>
+    </div>
+  )
 }
