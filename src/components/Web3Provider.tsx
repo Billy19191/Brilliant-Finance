@@ -41,7 +41,7 @@ export const Web3Provider = ({ children }: { children: React.ReactNode }) => {
         <ConnectKitProvider
           mode="auto"
           customTheme={{
-            '--ck-font-family': 'var(--font-bitter)',
+            // '--ck-font-family': 'var(--font-bitter)',
             '--ck-font-weight': '700',
           }}
         >
