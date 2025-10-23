@@ -1,3 +1,4 @@
+import { ContractStatus } from '@/types/types'
 import CryptoIcon from '../common/CryptoIcon'
 import {
   Table,
@@ -8,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from '../ui/table'
+import StatusLabelBadge from './StatusLabelBadge'
 
 export default function ActiveContractsTable() {
   const tableHeaders: string[] = [
@@ -38,19 +40,30 @@ export default function ActiveContractsTable() {
       duration: '60 days',
       startDate: '2023-02-01',
       endDate: '2023-04-02',
-      status: 'Active',
+      status: 'Completed',
     },
     {
-      asset: 'Litecoin',
-      symbol: 'ltc',
+      asset: 'USDT',
+      symbol: 'usdt',
       type: 'Lending',
       amount: 10.0,
       duration: '15 days',
       startDate: '2023-03-01',
       endDate: '2023-03-16',
-      status: 'Active',
+      status: 'Expired',
+    },
+    {
+      asset: 'BNB',
+      symbol: 'bnb',
+      type: 'Borrowing',
+      amount: 500.0,
+      duration: '45 days',
+      startDate: '2023-04-01',
+      endDate: '2023-05-16',
+      status: 'Pending',
     },
   ]
+
   return (
     <>
       <Table className="border border-separate border-gray-200 rounded-xl shadow-sm p-3">
@@ -75,7 +88,9 @@ export default function ActiveContractsTable() {
               <TableCell>{cell.duration}</TableCell>
               <TableCell>{cell.startDate}</TableCell>
               <TableCell>{cell.endDate}</TableCell>
-              <TableCell>{cell.status}</TableCell>
+              <TableCell>
+                <StatusLabelBadge status={cell.status as ContractStatus} />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

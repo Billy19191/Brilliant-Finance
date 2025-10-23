@@ -15,7 +15,7 @@ export default function OverviewSection() {
   ]
   return (
     <section className="font-inter">
-      <h2 className="text-2xl font-bold">Welcome, Crypto Investor!</h2>
+      <h2 className="text-2xl font-bold">Welcome, Billy191!</h2>
       <p className="mt-2 text-base">
         Here is a summary of your lending and borrowing activities.
       </p>

@@ -16,8 +16,8 @@ export default function CryptoIcon({
   className = '',
   fallback,
 }: CryptoIconProps) {
-  const [hasError, setHasError] = useState(false)
-  const iconPath = `/crypto_token_logo/${symbol.toLowerCase()}.svg`
+  const [hasError, setHasError] = useState<boolean>(false)
+  const iconPath: string = `/crypto_token_logo/${symbol.toLowerCase()}.svg`
 
   if (hasError && fallback) {
     return <div className={className}>{fallback}</div>
